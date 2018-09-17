@@ -94,7 +94,6 @@ float* feq
 
 }
 
-/*--fused all doesn't work prefectly.. why? */
 __global__ void fusedAll
 (
 int nx,
@@ -176,11 +175,6 @@ float* Tempn
 dim3  grid(nx/blockDim_x,ny/blockDim_y,1);
 dim3  threads(blockDim_x,blockDim_y,1);
 
-/*
-collision<<<grid,threads>>>(nx,ny,omega,f1,f2,f3,f4, feq);
-advection<<<grid,threads>>>(nx,ny,f1,f2,f3,f4,fn1,fn2,fn3,fn4);
-macroscopic<<<grid,threads>>>(nx,ny,fn1,fn2,fn3,fn4,Tempn,feq);
-*/
 
 /*
 fusedAdvColl<<<grid,threads>>>(nx,ny,omega,f1,f2,f3,f4,feq,fn1,fn2,fn3,fn4);
